@@ -22,6 +22,12 @@ return function (App $app) {
         return $response;
     });
 
+    $app->get('/adminpanel.html', function (Request $request, Response $response) use($app) {
+        $view = __DIR__ . '/../public/view/index.html';
+        $this->get('renderer')->render($response,'/admin.html');
+        return $response;
+    });
+
     $app->get('/assets/{filename}', function (Request $request, Response $response, $args) {
         $file_content = file_get_contents('../public/view/assets/' . $args['filename']);
         // $this->get('renderer')->render($response,'/index.html');
