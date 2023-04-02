@@ -26,7 +26,7 @@
         "ext-json": "*",
         "guzzlehttp/guzzle": "^7.5",
         "illuminate/database": "^10.5",
-        "monolog/monolog": "^2.9",
+        "monolog/monolog": "^3.3",
         "php-di/php-di": "^6.4",
         "slim/php-view": "^3.2",
         "slim/psr7": "^1.6",
