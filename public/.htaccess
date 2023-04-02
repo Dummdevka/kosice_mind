@@ -1,6 +1,5 @@
 Options All -Indexes
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: *
+
 
 <Files .htaccess>
 order allow,deny
@@ -9,7 +8,7 @@ deny from all
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-
+  
   # Redirect to HTTPS
   # RewriteEngine On
   # RewriteCond %{HTTPS} off
@@ -28,7 +27,7 @@ deny from all
   
   # If the above doesn't work you might need to set the `RewriteBase` directive manually, it should be the
   # absolute physical path to the directory that contains this htaccess file.
-  # RewriteBase /
+  RewriteBase /
 
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f

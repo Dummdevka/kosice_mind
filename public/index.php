@@ -4,6 +4,7 @@ declare(strict_types=1);
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+header('Access-Control-Allow-Origin: *');
 use App\Application\Handlers\HttpErrorHandler;
 use App\Application\Handlers\ShutdownHandler;
 use App\Application\ResponseEmitter\ResponseEmitter;
@@ -13,6 +14,7 @@ use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
 use DI\Container;
 use App\Application\Controllers\MapController;
+use Slim\Views\PhpRenderer;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -44,9 +46,13 @@ $container = $containerBuilder->build();
 // Instantiate the app
 AppFactory::setContainer($container);
 $app = AppFactory::create();
+$container->set('renderer', new PhpRenderer("./view"));
+// $app->setBasePath('/');
 $callableResolver = $app->getCallableResolver();
 
 $container = $app->getContainer();
+$container->set('api_key', 'S7sn27NnnfzTQHyksat7myADg0ovzfh5Lks0nJuS6ZI');
+$container->set('api_access_token', 'VyTgLwDeldXdPVCd5aEwl1myCGbow67Wo1iBbyZKU1yTCuqdZPyPkapQbed3ZgB2J_70TQNMIAIy9WZTVZ15pA');
 
 
 // Register middleware
